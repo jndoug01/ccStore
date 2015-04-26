@@ -11,7 +11,7 @@ require('./models/models');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
 var mongoose = require('mongoose');                         //add for Mongo support
-mongoose.connect('mongodb://localhost/');              //connect to Mongo
+mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds041157.mongolab.com:41157/MongoLab-0');              //connect to Mongo
 var app = express();
 
 // view engine setup
