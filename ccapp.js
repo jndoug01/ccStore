@@ -40,12 +40,12 @@ app.factory('postService', function($http){
 });
 */
 app.factory('postService', function($resource){
-	return $resource('/api/posts/:id');
+	return $resource('/api/orders/:id');
 });
 
 app.controller('mainController', function($scope, $rootScope, postService){
-	$scope.posts = postService.query();
-	$scope.newPost = {created_by: '', text: '', created_at: ''};
+	$scope.orders = postService.query();
+	$scope.newOrder = {created_by: '', cupcakeFlavor: '', created_at: ''};
 /*
 //used for basic read from json
 	postService.getAll().success(function(data){
