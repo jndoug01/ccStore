@@ -1,3 +1,4 @@
+var myApp = angular.module('myApp', []);
 var app = angular.module('ccApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
 	$rootScope.authenticated = false;
 	$rootScope.current_user = 'Guest';
@@ -39,7 +40,7 @@ app.factory('postService', function($http){
 	return factory;
 });
 */
-app.factory('postService', function($resource){
+app.factory('orderService', function($resource){
 	return $resource('/api/orders/:id');
 });
 
@@ -55,13 +56,13 @@ app.controller('mainController', function($scope, $rootScope, postService){
 	$scope.order = function() {
 		$scope.newOrder.created_by = $rootScope.current_user;
 		$scope.newPost.created_at = Date.now();
-		orderService.save($scope.newPost}, function(){
+		orderService.save($scope.newOrder}, function(){
 			$scope.posts = postService.query();
-			$scope.newPost = {created_by: '', text: '', created_at: ''};
+			$scope.newPost = {created_by: '', cupcakeFlavor: '', created_at: ''};
 		});
 	};
 	$scope.delete = function(post)	{
-		postService.delete({id: post._id});
+		postService.delete({id: order._id});
 		$scope.posts = postService.query();
 	};
 });
