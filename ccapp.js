@@ -1,5 +1,5 @@
-var myApp = angular.module('myApp', []);
-var app = angular.module('ccApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
+
+var ccapp = angular.module('ccApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
 	$rootScope.authenticated = false;
 	$rootScope.current_user = 'Guest';
 
@@ -55,7 +55,7 @@ app.controller('mainController', function($scope, $rootScope, postService){
 */
 	$scope.order = function() {
 		$scope.newOrder.created_by = $rootScope.current_user;
-		$scope.newPost.created_at = Date.now();
+		$scope.newOrder.created_at = Date.now();
 		orderService.save($scope.newOrder}, function(){
 			$scope.posts = postService.query();
 			$scope.newPost = {created_by: '', cupcakeFlavor: '', created_at: ''};
