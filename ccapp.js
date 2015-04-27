@@ -1,5 +1,5 @@
 
-var ccapp = angular.module('ccApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
+var myapp = angular.module('ccApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
 	$rootScope.authenticated = false;
 	$rootScope.current_user = 'Guest';
 
