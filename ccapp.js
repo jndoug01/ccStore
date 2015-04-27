@@ -56,9 +56,9 @@ app.controller('mainController', function($scope, $rootScope, postService){
 	$scope.order = function() {
 		$scope.newOrder.created_by = $rootScope.current_user;
 		$scope.newOrder.created_at = Date.now();
-		orderService.save($scope.newOrder}, function(){
-			$scope.posts = postService.query();
-			$scope.newPost = {created_by: '', cupcakeFlavor: '', created_at: ''};
+		orderService.save($scope.newOrder), function(){
+			$scope.orders = orderService.query();
+			$scope.newOrder = {created_by: '', cupcakeFlavor: '', created_at: ''};
 		});
 	};
 	$scope.delete = function(post)	{
