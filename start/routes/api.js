@@ -26,7 +26,7 @@ router.use('/orders', isAuthenticated);
 
 router.route('/orders')
 	//creates a new order
-	.Order(function(req, res){
+	.post(function(req, res){
 		if(!req.isAuthenticated()){
 			return res.send(401, {message:'not authorized'});
 		}
